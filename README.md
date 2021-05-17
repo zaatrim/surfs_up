@@ -45,7 +45,6 @@ part 1 of the analysis will focus on June: I will extract the temperature Data f
 3) Have more Data for June Temp ( 1700) vs. December 1517. 
  
  ![juneDectemp](https://user-images.githubusercontent.com/80013773/118436178-31fd5380-b695-11eb-9e0e-ff1c89ae212e.png)
-    
 ## *Summary*
 By using SQLite & SQLAlchem, we could create local DB and queries to perform analysis. we could leverage this code to other Islands or different months during the year.  
  I can do the following additional analysis: 
