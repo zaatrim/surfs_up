@@ -7,12 +7,6 @@ Our objective in this Analysis is to help W.Avy to show the board of Directors t
 ### Analysis
 1st step in this analysis is to import all dependencies; NumPy, pandas & SQLAlchemy
 next, I will create the path, Base, reference to each table & session: 
-        engine = create_engine("sqlite:///hawaii.sqlite")
-        Base = automap_base()
-        Base.prepare(engine, reflect=True)
-        Measurement = Base.classes.measurement
-        Station = Base.classes.station
-        session = Session(engine)
 
         engine = create_engine("sqlite:///hawaii.sqlite")
         Base = automap_base()
@@ -24,13 +18,19 @@ next, I will create the path, Base, reference to each table & session:
 
 part 1 of the analysis will focus on June: I will extract the temperature Data for June and then run a statistical analysis to check the Average, Min, and Max temperatures. as well will calculate the Standard deviation and the quartiles. I will follow the following steps  :
     1) Write a query that filters the Measurement table to retrieve the temperatures for June
+            
             june_temp = session.query(Measurement.date, Measurement.tobs).filter(extract("month", Measurement.date) == 6).all()
-    2) Convert the June temperatures to a list.
+            
+   2) Convert the June temperatures to a list.
+  
             june_temp_list= list (june_temp)
-    3) Create a DataFrame from the list of temperatures for June. 
+   3) Create a DataFrame from the list of temperatures for June. 
+  
             june_df = pd.DataFrame(june_temp_list, columns=['date','June Temps']) 
-    4) The final step to Calculate and print out the summary statistics for the June temperature DataFrame. 
+   4) The final step to Calculate and print out the summary statistics for the June temperature DataFrame. 
+  
             june_df.describe()
+            
         Insert Iamage1 
 
  In Part 2 of the analysis I will Use the code in part 1 and refactor it to run the analyisis om the of Decmber. 
