@@ -14,7 +14,12 @@ next, I will create the path, Base, reference to each table & session:
         Station = Base.classes.station
         session = Session(engine)
 
-      
+        engine = create_engine("sqlite:///hawaii.sqlite")
+        Base = automap_base()
+        Base.prepare(engine, reflect=True)
+        Measurement = Base.classes.measurement
+        Station = Base.classes.station
+        session = Session(engine)
 
 
 part 1 of the analysis will focus on June: I will extract the temperature Data for June and then run a statistical analysis to check the Average, Min, and Max temperatures. as well will calculate the Standard deviation and the quartiles. I will follow the following steps  :
